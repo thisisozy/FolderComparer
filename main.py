@@ -35,18 +35,18 @@ def main():
 
     if unchanged:
         output_lines.append("Unchanged files:")
-        output_lines.extend(f"  {p1}" for p1, _ in unchanged)
+        output_lines.extend(f"  {p1}" for p1, _ in sorted(unchanged, key=lambda x: x[0]))
     if moved_or_renamed:
         output_lines.append("Moved or renamed files:")
-        output_lines.extend(f"  {p1} -> {p2}" for p1, p2 in moved_or_renamed)
+        output_lines.extend(f"  {p1} -> {p2}" for p1, p2 in sorted(moved_or_renamed, key=lambda x: (x[0], x[1])))
     if only_in_one:
         output_lines.append(f"Files only in {folder_one} (missing in {folder_two}):")
-        for h in only_in_one:
-            output_lines.extend(f"  {f}" for f in hashes_one[h])
+        missing_one = sorted(f for h in only_in_one for f in hashes_one[h])
+        output_lines.extend(f"  {f}" for f in missing_one)
     if only_in_two:
         output_lines.append(f"Files only in {folder_two} (missing in {folder_one}):")
-        for h in only_in_two:
-            output_lines.extend(f"  {f}" for f in hashes_two[h])
+        missing_two = sorted(f for h in only_in_two for f in hashes_two[h])
+        output_lines.extend(f"  {f}" for f in missing_two)
     if not output_lines:
         output_lines.append("All files are identical!")
 
