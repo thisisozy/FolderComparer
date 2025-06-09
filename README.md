@@ -1,4 +1,4 @@
-![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)
 
 # FolderComparer
 
