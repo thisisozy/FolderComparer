@@ -1,3 +1,5 @@
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+
 # FolderComparer
 
 FolderComparer is a Python script that compares the contents of two folders, providing a detailed report of all differences. It automatically detects files that are identical, files that have been moved or renamed, and files that are missing in either folder. This makes it ideal for verifying backups, synchronizing directories, or tracking changes in large file collections.
